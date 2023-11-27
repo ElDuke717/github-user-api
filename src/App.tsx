@@ -1,18 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// import { useState } from 'react'
+
+import "./App.css";
 
 function App() {
-  
   return (
     <>
       <div>
-        <p>Hello</p>
+        <p className="font-bold text-center pt-10">Hello, World!</p>
       </div>
-      
     </>
-  )
+  );
 }
 
-export default App
+export default App;
