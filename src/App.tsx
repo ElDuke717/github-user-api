@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <div>
-        <p className="font-bold text-center pt-10">Hello, World!</p>
+        <p className="font-bold text-center pt-10">The Search Form</p>
       </div>
       <Form />
     </>
