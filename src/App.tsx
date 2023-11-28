@@ -1,13 +1,22 @@
 import { useState } from 'react'
 import "./App.css";
 import Form from "./components/Form";
+import Card from './components/Card';
 
-type GithubData = {
+export type GitHubData = {
   name: string;
+  avatar_url: string
+  login: string
+  public_repos: number
+  created_at: string
+  location: string
+  bio: string
+  html_url: string
+  blog: string
 };
 
 function App() {
-  const [data, setData] = useState<GithubData | null>(null);
+  const [data, setData] = useState<GitHubData | null>(null);
 
   async function fetchData(username: string, e: unknown) {
     e.preventDefault();
@@ -27,7 +36,7 @@ function App() {
         <p className="font-bold text-center pt-10">The Search Form</p>
       </div>
       <Form fetchData={fetchData}/>
-      <p className='text-center mt-4'>{data?.name}</p>
+      {data && <Card data={data}/>}
     </>
   );
 }
