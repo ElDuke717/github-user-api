@@ -17,6 +17,8 @@ export type GitHubData = {
 
 function App() {
   const [data, setData] = useState<GitHubData | null>(null);
+  // Create a state variable for the cards, which is an array of GitHubData
+  const [cards, setCards] = useState<GitHubData[]>([]);
 
   async function fetchData(username: string, e: unknown) {
     e.preventDefault();
@@ -26,6 +28,7 @@ function App() {
     if (response.status === 200) {
       const data = await response.json();
       setData(data);
+      setCards([...cards, data]);
     } else {
       console.log("Error: User not found");
     }
@@ -36,7 +39,12 @@ function App() {
         <p className="font-bold text-center pt-10">The Search Form</p>
       </div>
       <Form fetchData={fetchData}/>
-      {data && <Card data={data}/>}
+      <div className='mt-10'>
+        {/* Iterate through all the users added to state */}
+        {cards.map((card, index) => (
+          <Card key={index} data={card} />
+        ))}
+      </div>
     </>
   );
 }
