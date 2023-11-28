@@ -4,9 +4,17 @@ import { FormEvent } from "react";
 function Form() {
   const [username, setUsername] = useState("");
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log(username);
+
+    const response = await fetch(`https://api.github.com/users/${username}`);
+    console.log(response);
+    if (response.status === 200) {
+      const data = await response.json();
+      console.log(data);
+    } else {
+      console.log("Error: User not found");
+    }
   }
 
   return (
