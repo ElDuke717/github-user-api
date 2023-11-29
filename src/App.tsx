@@ -36,7 +36,8 @@ function App() {
   return (
     <>
       <div>
-        <p className="font-bold text-center pt-10">The Search Form</p>
+        <img className="rounded-md h-56 mx-auto pt-10" src="/src/assets/banner-img.png" alt="GitHub_User_Banner" />
+        <p className="font-bold text-center pt-10">The GitHub User Search</p>
       </div>
       <Form fetchData={fetchData}/>
       <div className='mt-10'>
